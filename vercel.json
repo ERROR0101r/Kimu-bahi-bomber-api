@@ -1,26 +1,23 @@
-
 {
   "version": 2,
   "builds": [
     {
-      "src": "kimu_bhai_bomb_api.py",
-      "use": "@vercel/python"
+      "src": "kimu_bhai_bomb_api_vercel.py",
+      "use": "@vercel/python",
+      "config": {
+        "maxDuration": 60,
+        "runtime": "python3.9"
+      }
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "kimu_bhai_bomb_api.py"
+      "dest": "kimu_bhai_bomb_api_vercel.py"
     }
   ],
   "env": {
     "FLASK_ENV": "production",
     "PYTHONUNBUFFERED": "1"
-  },
-  "functions": {
-    "kimu_bhai_bomb_api.py": {
-      "memory": 1024,
-      "maxDuration": 60
-    }
   }
 }
